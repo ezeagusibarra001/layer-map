@@ -25,15 +25,15 @@ export function LayerBox({ name, color, position, onClick, isActive }: LayerBoxP
     <div
       className={clsx(
         'absolute cursor-pointer transition-all duration-300 transform hover:scale-105',
-        'px-5 py-3 rounded-lg border-2 text-white font-semibold shadow-md hover:shadow-lg',
-        'min-w-[120px] text-center text-sm',
+        'px-3 lg:px-5 py-2 lg:py-3 rounded-lg border-2 text-white font-semibold shadow-md hover:shadow-lg',
+        'min-w-[80px] lg:min-w-[120px] text-center text-xs lg:text-sm',
         colorMap[color as keyof typeof colorMap] || 'bg-gray-500 hover:bg-gray-600 border-gray-600',
-        isActive && 'ring-3 ring-white ring-opacity-70 scale-110'
+        isActive && 'ring-2 lg:ring-3 ring-white ring-opacity-70 scale-105 lg:scale-110'
       )}
       style={{
         left: `${position.x}%`,
         top: `${position.y}%`,
-        transform: `translate(-50%, -50%) ${isActive ? 'scale(1.1)' : 'scale(1)'}`,
+        transform: `translate(-50%, -50%) ${isActive ? 'scale(1.05)' : 'scale(1)'}`,
       }}
       onClick={onClick}
     >

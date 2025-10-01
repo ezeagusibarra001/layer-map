@@ -1,7 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { ChevronRight, Database, Globe, Layers, Server, QrCode } from 'lucide-react';
+import { ChevronRight, Database, Globe, Layers, Server, QrCode, X } from 'lucide-react';
 import { SectionId } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import Link from 'next/link';
 interface SidebarProps {
   activeSection: SectionId;
   onSectionChange: (section: SectionId) => void;
+  onClose?: () => void;
 }
 
 const menuItems = [
@@ -35,41 +36,53 @@ const menuItems = [
   }
 ];
 
-export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
+export function Sidebar({ activeSection, onSectionChange, onClose }: SidebarProps) {
   return (
     <aside className="w-80 bg-white border-r border-gray-200 flex flex-col h-screen">
       {/* Header */}
-      <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center space-x-3">
-          <Image 
-            src="/logo.png" 
-            alt="LayerMap Logo" 
-            width={32} 
-            height={32}
-            className="rounded-lg"
-          />
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">LayerMap</h1>
-            <p className="text-sm text-gray-600">Arquitectura de Software</p>
+      <div className="p-4 lg:p-6 border-b border-gray-200">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <Image 
+              src="/logo.png" 
+              alt="LayerMap Logo" 
+              width={28} 
+              height={28}
+              className="rounded-lg lg:w-8 lg:h-8"
+            />
+            <div>
+              <h1 className="text-lg lg:text-xl font-bold text-gray-900">LayerMap</h1>
+              <p className="text-xs lg:text-sm text-gray-600">Arquitectura de Software</p>
+            </div>
           </div>
+          
+          {/* Close button for mobile */}
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto p-4">
+      <nav className="flex-1 overflow-y-auto p-3 lg:p-4">
         <div className="space-y-6">
           {menuItems.map((group) => (
             <div key={group.category}>
               {/* Category Header */}
               <div className="flex items-center space-x-2 mb-3">
-                <group.icon className={clsx('w-5 h-5', group.color)} />
-                <h2 className="font-semibold text-gray-900 text-sm uppercase tracking-wide">
+                <group.icon className={clsx('w-4 h-4 lg:w-5 lg:h-5', group.color)} />
+                <h2 className="font-semibold text-gray-900 text-xs lg:text-sm uppercase tracking-wide">
                   {group.category}
                 </h2>
               </div>
 
               {/* Category Items */}
-              <div className="space-y-1 ml-7">
+              <div className="space-y-1 ml-6 lg:ml-7">
                 {group.items.map((item) => (
                   <button
                     key={item.id}
@@ -86,10 +99,10 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
                       <div className={clsx('w-2 h-2 rounded-full', 
                         item.color.replace('text-', 'bg-')
                       )} />
-                      <span>{item.title}</span>
+                      <span className="text-xs lg:text-sm">{item.title}</span>
                     </span>
                     <ChevronRight className={clsx(
-                      'w-4 h-4 transition-transform duration-200',
+                      'w-3 h-3 lg:w-4 lg:h-4 transition-transform duration-200',
                       activeSection === item.id 
                         ? 'transform rotate-90 text-indigo-600' 
                         : 'text-gray-400 group-hover:text-gray-600'
@@ -103,13 +116,13 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-gray-200 space-y-3">
+      <div className="p-3 lg:p-4 border-t border-gray-200 space-y-3">
         {/* QR Link */}
         <Link 
           href="/qr"
-          className="w-full flex items-center justify-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium text-sm"
+          className="w-full flex items-center justify-center space-x-2 bg-indigo-600 text-white px-3 lg:px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium text-xs lg:text-sm"
         >
-          <QrCode className="w-4 h-4" />
+          <QrCode className="w-3 h-3 lg:w-4 lg:h-4" />
           <span>Ver código QR</span>
         </Link>
         

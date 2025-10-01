@@ -73,30 +73,30 @@ export function SectionContent({ section }: SectionContentProps) {
     <div className="max-w-4xl mx-auto">
       {/* Header */}
       <div
-        className={`${colors.bg} ${colors.border} border rounded-xl p-6 mb-8`}
+        className={`${colors.bg} ${colors.border} border rounded-xl p-4 lg:p-6 mb-6 lg:mb-8`}
       >
         <div className="flex items-center space-x-3 mb-4">
-          <div className={`w-4 h-4 rounded-full ${colors.dot}`} />
-          <h1 className="text-3xl font-bold text-gray-900">{section.title}</h1>
+          <div className={`w-3 h-3 lg:w-4 lg:h-4 rounded-full ${colors.dot}`} />
+          <h1 className="text-xl lg:text-3xl font-bold text-gray-900">{section.title}</h1>
           <span
-            className={`px-3 py-1 rounded-full text-xs font-medium ${colors.bg} ${colors.text} border ${colors.border}`}
+            className={`px-2 lg:px-3 py-1 rounded-full text-xs font-medium ${colors.bg} ${colors.text} border ${colors.border}`}
           >
             {section.category.toUpperCase()}
           </span>
         </div>
-        <p className="text-lg text-gray-700 leading-relaxed">
+        <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
           {section.description}
         </p>
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-6 lg:mb-8">
         {/* Responsibility */}
         <div className="lg:col-span-3">
-          <div className="bg-white rounded-xl border border-gray-200 p-6 h-full shadow-sm">
+          <div className="bg-white rounded-xl border border-gray-200 p-4 lg:p-6 h-full shadow-sm">
             <div className="flex items-center space-x-2 mb-4">
-              <Target className="w-5 h-5 text-gray-600" />
-              <h3 className="font-semibold text-gray-900">Responsabilidades</h3>
+              <Target className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600" />
+              <h3 className="text-sm lg:text-base font-semibold text-gray-900">Responsabilidades</h3>
             </div>
             <p className="text-gray-700 leading-relaxed">
               {section.responsibility}

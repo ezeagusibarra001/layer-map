@@ -48,26 +48,26 @@ export function VisualMap({ activeSection, onLayerClick }: VisualMapProps) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden relative">
       {/* Header */}
-      <div className="bg-gray-50 border-b border-gray-200 px-6 py-4">
-        <h2 className="text-xl font-semibold text-gray-900 mb-1">
+      <div className="bg-gray-50 border-b border-gray-200 px-4 lg:px-6 py-3 lg:py-4">
+        <h2 className="text-lg lg:text-xl font-semibold text-gray-900 mb-1">
           Mapa Visual de Arquitectura
         </h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 text-xs lg:text-sm">
           Haz clic en cualquier capa para explorar ejemplos de código
         </p>
       </div>
 
       {/* Map Container */}
-      <div className="relative h-[400px] p-8">
+      <div className="relative h-[300px] md:h-[400px] lg:h-[450px] p-4 lg:p-8">
         {/* Section Labels */}
-        <div className="absolute top-4 left-8">
-          <span className="text-sm font-semibold text-yellow-800 bg-yellow-100 px-3 py-1 rounded-lg">
+        <div className="absolute top-2 lg:top-4 left-4 lg:left-8">
+          <span className="text-xs lg:text-sm font-semibold text-yellow-800 bg-yellow-100 px-2 lg:px-3 py-1 rounded-lg">
             Frontend
           </span>
         </div>
         
-        <div className="absolute top-4 right-8">
-          <span className="text-sm font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-lg">
+        <div className="absolute top-2 lg:top-4 right-4 lg:right-8">
+          <span className="text-xs lg:text-sm font-semibold text-blue-800 bg-blue-100 px-2 lg:px-3 py-1 rounded-lg">
             Backend
           </span>
         </div>
