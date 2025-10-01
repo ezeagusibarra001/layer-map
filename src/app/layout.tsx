@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LayerMap - Visualiza tu arquitectura de software",
   description: "Guía interactiva para entender las capas de arquitectura de software backend y frontend",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -6,6 +6,7 @@ import { VisualMap } from '@/components/VisualMap';
 import { SectionContent } from '@/components/SectionContent';
 import { sections } from '@/data/sections';
 import { SectionId } from '@/types';
+import Image from 'next/image';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<SectionId>('frontend-model');
@@ -29,13 +30,22 @@ export default function Home() {
         {/* Header */}
         <header className="bg-white border-b border-gray-200 px-8 py-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                LayerMap - Visualiza tu arquitectura de software
-              </h1>
-              <p className="text-gray-600 mt-1">
-                Guía interactiva para entender las capas de arquitectura backend y frontend
-              </p>
+            <div className="flex items-center space-x-4">
+              <Image 
+                src="/logo.png" 
+                alt="LayerMap Logo" 
+                width={40} 
+                height={40}
+                className="rounded-lg"
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  LayerMap - Visualiza tu arquitectura de software
+                </h1>
+                <p className="text-gray-600 mt-1">
+                  Guía interactiva para entender las capas de arquitectura backend y frontend
+                </p>
+              </div>
             </div>
             <div className="text-right">
               <div className="text-sm text-gray-500">Sección actual</div>

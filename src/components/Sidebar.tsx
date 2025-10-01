@@ -3,6 +3,7 @@
 import { clsx } from 'clsx';
 import { ChevronRight, Database, Globe, Layers, Server } from 'lucide-react';
 import { SectionId } from '@/types';
+import Image from 'next/image';
 
 interface SidebarProps {
   activeSection: SectionId;
@@ -39,7 +40,13 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
       {/* Header */}
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center space-x-3">
-          <Layers className="w-8 h-8 text-indigo-600" />
+          <Image 
+            src="/logo.png" 
+            alt="LayerMap Logo" 
+            width={32} 
+            height={32}
+            className="rounded-lg"
+          />
           <div>
             <h1 className="text-xl font-bold text-gray-900">LayerMap</h1>
             <p className="text-sm text-gray-600">Arquitectura de Software</p>
