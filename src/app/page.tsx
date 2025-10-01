@@ -7,6 +7,8 @@ import { SectionContent } from '@/components/SectionContent';
 import { sections } from '@/data/sections';
 import { SectionId } from '@/types';
 import Image from 'next/image';
+import Link from 'next/link';
+import { QrCode } from 'lucide-react';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<SectionId>('frontend-model');
@@ -47,11 +49,21 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-sm text-gray-500">Sección actual</div>
-              <div className="text-lg font-semibold text-gray-900">
-                {currentSection.title}
+            <div className="flex items-center justify-between">
+              <div className="text-right">
+                <div className="text-sm text-gray-500">Sección actual</div>
+                <div className="text-lg font-semibold text-gray-900">
+                  {currentSection.title}
+                </div>
               </div>
+              
+              <Link 
+                href="/qr"
+                className="ml-4 inline-flex items-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium text-sm"
+              >
+                <QrCode className="w-4 h-4" />
+                <span>Ver QR</span>
+              </Link>
             </div>
           </div>
         </header>

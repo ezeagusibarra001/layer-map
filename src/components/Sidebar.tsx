@@ -1,9 +1,10 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { ChevronRight, Database, Globe, Layers, Server } from 'lucide-react';
+import { ChevronRight, Database, Globe, Layers, Server, QrCode } from 'lucide-react';
 import { SectionId } from '@/types';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface SidebarProps {
   activeSection: SectionId;
@@ -102,7 +103,17 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-4 border-t border-gray-200 space-y-3">
+        {/* QR Link */}
+        <Link 
+          href="/qr"
+          className="w-full flex items-center justify-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors font-medium text-sm"
+        >
+          <QrCode className="w-4 h-4" />
+          <span>Ver código QR</span>
+        </Link>
+        
+        {/* App Info */}
         <div className="text-xs text-gray-500 text-center">
           <p>Desarrollado para aprender</p>
           <p>arquitectura de software</p>
