@@ -27,8 +27,8 @@ const connections = [
   { from: { x: 25, y: 50 }, to: { x: 25, y: 70 }, color: '#ec4899' }, // View -> Controller
   { from: { x: 25, y: 70 }, to: { x: 25, y: 30 }, color: '#ec4899' }, // Controller -> Model
 
-  // Frontend Controller <-> Backend Controller
-  { from: { x: 35, y: 70 }, to: { x: 65, y: 30 }, color: '#6366f1', thick: true },
+  // Frontend Controller <-> Backend Controller (con DTOs) - tocando las cajas
+  { from: { x: 25, y: 70 }, to: { x: 75, y: 30 }, color: '#6366f1', thick: true, label: 'DTOs' },
 
   // Backend Controller -> Service
   { from: { x: 75, y: 30 }, to: { x: 75, y: 50 }, color: '#3b82f6' },

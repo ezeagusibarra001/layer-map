@@ -114,9 +114,9 @@ export const UserController = () => {
     title: 'Controller',
     category: 'backend',
     color: 'blue',
-    description: 'Recibe las peticiones HTTP y devuelve respuestas. Solo maneja entrada y salida.',
-    responsibility: 'Recibir requests HTTP, devolver responses',
-    codeExample: `// UserController.java - API REST
+    description: 'Recibe las peticiones HTTP y devuelve respuestas. Usa DTOs (Data Transfer Objects) como contratos de comunicación con el frontend.',
+    responsibility: 'Recibir requests HTTP, manejar DTOs, devolver responses',
+    codeExample: `// UserController.java - API REST con DTOs
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -125,12 +125,12 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getUsers() {
+    public List<UserResponseDto> getUsers() {
         return userService.getAllUsers();
     }
 
     @PostMapping
-    public User createUser(@RequestBody CreateUserRequest request) {
+    public UserResponseDto createUser(@RequestBody CreateUserDto request) {
         return userService.createUser(request.getName(), request.getEmail());
     }
 
@@ -138,6 +138,29 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
+}
+
+// DTOs - Contratos de comunicación
+class CreateUserDto {
+    private String name;
+    private String email;
+    
+    // getters y setters
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+}
+
+class UserResponseDto {
+    private Long id;
+    private String name;
+    private String email;
+    private Boolean active;
+    
+    // getters y setters
+    public Long getId() { return id; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+    public Boolean getActive() { return active; }
 }`,
     language: 'java'
   },
